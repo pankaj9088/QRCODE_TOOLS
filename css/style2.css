@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../image/image1.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #222;
+}
+
+.scan-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: #666;
+}
+
+button {
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#uploadBtn {
+  background: #e63946;
+  color: #fff;
+}
+
+#cameraBtn {
+  background: #ddd;
+}
+
+#closeCameraBtn {
+  background: #444;
+  color: #fff;
+  margin-top: 10px;
+}
+
+#reader {
+  width: 100%;
+  height: 250px;
+  margin-top: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+}
+
+.output-section {
+  margin-top: 20px;
+}
+
+#extractedText {
+  background: #f1f1f1;
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 50px;
+  font-size: 14px;
+  color: #333;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#copyBtn {
+  background: #ddd;
+}
+
+#shareBtn {
+  background: #e63946;
+  color: #fff;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan QR Code</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Scan QR Code</h2>
+    </header>
+
+    <div class="scan-section">
+      <p>Scan from Image or Camera</p>
+      <p class="sub-text">Upload a QR code image or use your camera to scan it directly.</p>
+      <input type="file" id="uploadInput" accept="image/*" hidden>
+      <button id="uploadBtn">📂 Upload Image</button>
+      <button id="cameraBtn">📷 Use Camera</button>
+      <div id="cameraContainer" style="display:none;">
+       <div id="reader"></div>
+       <button id="closeCameraBtn">Close Camera</button>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <h3>Extracted Text</h3>
+      <p id="extractedText">No text extracted yet. Please scan a QR code.</p>
+      <div class="btn-group">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="shareBtn">🔗 Share</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+<script src="js/qr-to-text.js"></script>
+</body>
+</html>
