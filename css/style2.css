@@ -4,24 +4,74 @@ body {
   background-size: cover;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode label,
+body.dark-mode p {
+  color: #e0e0e0;
+}
+
+body.dark-mode .sub-text {
+  color: #aaa;
+}
+
+body.dark-mode #extractedText {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
 }
 
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: 30px auto;
   padding: 20px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-toggle {
+  padding: 8px 15px !important;
+  background: #6c757d !important;
+  color: white !important;
+  border: none;
+  border-radius: 20px !important;
+  cursor: pointer;
+  font-size: 14px;
+  width: auto !important;
+  margin: 0 !important;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #5a6268 !important;
+  transform: scale(1.05);
 }
 
 h2 {
   color: #222;
+  margin: 0;
 }
 
 .scan-section {
@@ -32,16 +82,24 @@ h2 {
 .sub-text {
   font-size: 14px;
   color: #666;
+  margin-bottom: 15px;
 }
 
 button {
-  padding: 10px;
+  padding: 12px;
   margin: 8px 0;
   border: none;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
   width: 100%;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #uploadBtn {
@@ -50,34 +108,48 @@ button {
 }
 
 #cameraBtn {
-  background: #ddd;
+  background: #6c757d;
+  color: white;
 }
 
 #closeCameraBtn {
-  background: #444;
+  background: #343a40;
   color: #fff;
   margin-top: 10px;
 }
 
+#cameraContainer {
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 #reader {
   width: 100%;
-  height: 250px;
-  margin-top: 10px;
-  border: 2px dashed #ccc;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .output-section {
-  margin-top: 20px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+body.dark-mode .output-section {
+  border-top-color: #444;
 }
 
 #extractedText {
-  background: #f1f1f1;
-  padding: 12px;
+  background: #f8f9fa;
+  padding: 15px;
   border-radius: 8px;
-  min-height: 50px;
+  min-height: 60px;
   font-size: 14px;
   color: #333;
+  margin: 10px 0;
+  border: 1px solid #e9ecef;
+  word-break: break-all;
 }
 
 .btn-group {
@@ -87,11 +159,73 @@ button {
   margin-top: 15px;
 }
 
+.btn-group button {
+  width: auto;
+  flex: 1;
+  margin: 0;
+}
+
 #copyBtn {
-  background: #ddd;
+  background: #6c757d;
+  color: white;
 }
 
 #shareBtn {
-  background: #e63946;
+  background: #17a2b8;
   color: #fff;
+}
+
+#saveHistoryBtn {
+  background: #28a745;
+  color: white;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: bottom 0.3s ease;
+  font-size: 14px;
+  max-width: 90%;
+}
+
+.toast.show {
+  bottom: 30px;
+}
+
+.toast-success {
+  background: #28a745;
+}
+
+.toast-error {
+  background: #dc3545;
+}
+
+.toast-info {
+  background: #17a2b8;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-group {
+    flex-wrap: wrap;
+  }
 }

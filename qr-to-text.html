@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scan QR Code</title>
   <link rel="stylesheet" href="css/style2.css">
 </head>
+
 <body>
   <div class="container">
     <header>
       <h2>Scan QR Code</h2>
+      <div style="display: flex; gap: 10px;">
+        <a href="history.html"
+          style="padding: 8px 15px; background: #17a2b8; color: white; border-radius: 20px; text-decoration: none; font-size: 14px;">📜
+          View History</a>
+        <button id="darkModeToggle" class="theme-toggle">🌙 Dark Mode</button>
+      </div>
     </header>
 
     <div class="scan-section">
@@ -19,8 +27,8 @@
       <button id="uploadBtn">📂 Upload Image</button>
       <button id="cameraBtn">📷 Use Camera</button>
       <div id="cameraContainer" style="display:none;">
-       <div id="reader"></div>
-       <button id="closeCameraBtn">Close Camera</button>
+        <div id="reader"></div>
+        <button id="closeCameraBtn">Close Camera</button>
       </div>
     </div>
 
@@ -30,13 +38,15 @@
       <div class="btn-group">
         <button id="copyBtn">📋 Copy</button>
         <button id="shareBtn">🔗 Share</button>
+        <button id="saveHistoryBtn">💾 Save</button>
       </div>
     </div>
   </div>
 
-<!-- Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
-<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-<script src="js/qr-to-text.js"></script>
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script defer src="js/qr-to-text.js"></script>
 </body>
+
 </html>

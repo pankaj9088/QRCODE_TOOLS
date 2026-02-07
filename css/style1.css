@@ -4,13 +4,38 @@ body {
   background-size: cover;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode label {
+  color: #e0e0e0;
+}
+
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode input[type="color"] {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #444;
 }
 
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: 30px auto;
   padding: 20px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
@@ -18,37 +43,115 @@ body {
 header {
   text-align: center;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-toggle {
+  padding: 8px 15px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #5a6268;
+  transform: scale(1.05);
 }
 
 h2 {
   color: #222;
+  margin: 0;
 }
 
 .input-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 textarea {
   resize: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 14px;
+  min-height: 80px;
+}
+
+/* Customization Options */
+.customization-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+
+body.dark-mode .customization-options {
+  background: rgba(255,255,255,0.05);
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.option-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+body.dark-mode .option-group label {
+  color: #bbb;
+}
+
+.option-group input[type="color"] {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.option-group select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 button {
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 #generateBtn {
   background: #e63946;
   color: #fff;
+}
+
+#generateBtn:hover {
+  background: #d62839;
 }
 
 .output-section {
@@ -59,19 +162,90 @@ button {
 #qrCode canvas {
   margin: 15px auto;
   display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .btn-group {
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 #downloadBtn {
-  background: #ddd;
+  background: #6c757d;
+  color: white;
+}
+
+#downloadBtn:hover {
+  background: #5a6268;
 }
 
 #shareBtn {
   background: #e63946;
   color: #fff;
+}
+
+#shareBtn:hover {
+  background: #d62839;
+}
+
+#saveHistoryBtn {
+  background: #28a745;
+  color: white;
+}
+
+#saveHistoryBtn:hover {
+  background: #218838;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: bottom 0.3s ease;
+  font-size: 14px;
+  max-width: 90%;
+}
+
+.toast.show {
+  bottom: 30px;
+}
+
+.toast-success {
+  background: #28a745;
+}
+
+.toast-error {
+  background: #dc3545;
+}
+
+.toast-info {
+  background: #17a2b8;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .customization-options {
+    grid-template-columns: 1fr;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
